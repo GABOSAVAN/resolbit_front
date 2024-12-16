@@ -1,0 +1,185 @@
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button
+          type="button"
+          class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          (click)="toggleMenuMobile()"
+        >
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg
+            class="block size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+          <!--
+            Icon when menu is open.
+
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg
+            class="hidden size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+      >
+        <div class="flex shrink-0 items-center">
+          <img
+            class="hidden sm:block h-8 w-auto rounded-full"
+            src="data:image/jpeg;base64,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"
+            alt="Your Company"
+          />
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+
+            <a
+            onclick="return false"
+            (click)="toHome()"
+              href="#"
+              class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+              aria-current="page"
+              >Home</a
+            >
+           
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+      >
+        <button
+         (click)="toCart()"
+          type="button"
+          class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+        >         
+          <div
+            class="bg-white w-7 h-7 rounded-full flex justify-center items-center"
+          >
+            <img
+              class="w-4 h-4"
+              src="assets/reshot-icon-shopping-cart-WFDT3CVZMJ.svg"
+              alt=""
+            />
+
+            <span
+              class="w-4 h-4 absolute top-0 right-1 -mt-1 -mr-1 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5 flex justify-center items-center"
+            >
+              88
+            </span>
+          </div>
+        </button>
+
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <div class="hidden md:block">
+            <button
+              type="button"
+              (click)="toggleMenu()"
+              class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              id="user-menu-button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <img
+                class="size-8 rounded-full"
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt=""
+              />
+            </button>
+          </div>
+
+          <!--
+            Dropdown menu, show/hide based on menu state.
+
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          <div          
+            class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none"
+            *ngIf="showMenu"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="user-menu-button"
+            tabindex="-1"
+          >
+            <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
+            <a
+            (click)="toInventary()"
+            onclick="return false"
+              href="#"
+              class="block px-4 py-2 text-sm text-gray-700"
+              role="menuitem"
+              tabindex="-1"
+              id="user-menu-item-0"
+              >Inventario</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="sm:hidden" id="mobile-menu" *ngIf="menuOpen">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <a
+        onclick="return false"
+        (click)="toHome()"
+        href="#"
+        class="block rounded-md px-3 py-2 text-base font-medium text-white"
+        aria-current="page"
+        >Home</a
+      >      
+      <a
+      onclick="return false"
+      (click)="toInventary()"
+        href="#"
+        class="block rounded-md px-3 py-2 text-base font-medium text-white"
+        >Inventario</a
+      >
+    </div>
+  </div>
+</nav>
