@@ -1,16 +1,32 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-products',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './create-products.component.html',
   styleUrl: './create-products.component.css'
 })
 export class CreateProductsComponent {
 
-  constructor(private router: Router) {}  
+  product = {
+    id:'',
+    name: '',
+    brand: '',
+    price: 0,
+    quantity: 0,
+    size: '',
+    image: '',
+    description: '',
+  };
+
+  constructor(
+    public router: Router,
+  ){} 
 
   toCart() {
     this.router.navigate(['/pages/cart']
@@ -26,5 +42,9 @@ export class CreateProductsComponent {
 
   addCart() {
     console.log("agregando...");
+  }
+
+  save() {
+    console.log('Producto Guardado:', this.product);
   }
 }

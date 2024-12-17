@@ -27,208 +27,27 @@
         <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
           <thead class="ltr:text-left rtl:text-right">
             <tr>
-                <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Producto</th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Presentacion</th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Marca</th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Precio</th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Existencias</th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Vendidos</th>
+                <th class="whitespace-nowrap px-4 py-2 font-bold text-gray-900">Producto</th>
+              <th class="whitespace-nowrap px-4 py-2 font-bold text-gray-900">Presentacion</th>
+              <th class="whitespace-nowrap px-4 py-2 font-bold text-gray-900">Marca</th>
+              <th class="whitespace-nowrap px-4 py-2 font-bold text-gray-900">Precio</th>
+              <th class="whitespace-nowrap px-4 py-2 font-bold text-gray-900">Existencias</th>
               <th class="px-4 py-2">Acciones</th>
             </tr>
           </thead>
       
           <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-              <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-              <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-              <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-              <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-              <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-              <td class="whitespace-nowrap px-4 text-center py-2">
-                <a
-                onclick="return false"
-                (click)="toEdit()"
-                  href="#"
-                  class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                >
-                  Editar
-                </a>
-                <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                    Eliminar
-                </button>
-              </td>
-            </tr>
-      
-            <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
+            <ng-container *ngFor="let product of products">
               <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
+                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">{{product.name}}</td>
+                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">{{product.size}}</td>
+                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">{{product.brand}}</td>
+                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">{{product.price}}</td>
+                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">{{product.quantity}}</td>
                 <td class="whitespace-nowrap px-4 text-center py-2">
                   <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
-                    href="#"
-                    class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
-                  >
-                    Detalle
-                  </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
-                      Eliminar
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">123456</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">John Doe</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 font-medium text-gray-900">Channel</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">24/05/1995</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">Web Developer</td>
-                <td class="whitespace-nowrap px-4 text-center py-2 text-gray-700">$120,000</td>
-                <td class="whitespace-nowrap px-4 text-center py-2">
-                  <a
+                  onclick="return false"
+                  (click)="toEdit()"
                     href="#"
                     class="inline-block rounded bg-indigo-600 px-4 py-2  mx-4 text-xs font-medium text-white hover:bg-indigo-700"
                   >
@@ -239,6 +58,7 @@
                   </button>
                 </td>
               </tr>
+            </ng-container>       
 
           </tbody>
         </table>
@@ -247,7 +67,7 @@
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2">
         <div class="col-start-1 md:col-start-2 font-extrabold grid grid-cols-2">
           <div class="text-2xl flex justify-center">Total Valor de Inventario</div>
-          <div class="text-2xl flex justify-center"> $ 12345</div>
+          <div class="text-2xl flex justify-center"> $ {{value}}</div>
         </div>
       </div>
 </div>

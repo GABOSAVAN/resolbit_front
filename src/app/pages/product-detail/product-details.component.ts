@@ -10,21 +10,32 @@ import { Router } from '@angular/router';
 })
 export class ProductDetailsComponent {
 
+  product: any;
   constructor(
     public router: Router,
   ){}
 
-  //functions
+  ngOnInit(): void {
+
+    const storedProduct = localStorage.getItem('selectedProduct');
+
+    if (storedProduct) {
+      this.product = JSON.parse(storedProduct);
+    } else {
+      const navigation = this.router.getCurrentNavigation();
+    this.product = navigation?.extras.state?.['product'];
+    console.log(this.product);
+    }
+  }
 
   backHome() {
     this.router.navigate(['/']
-      //  { state: { _id: _id } }
       );
   }
 
   toEdit() {
-    this.router.navigate(['/owner/update/01']
-      //  { state: { _id: _id } }
+    this.router.navigate(['/owner/update/', this.product.id],
+        { state: { product: this.product } }
       );
   }
 
