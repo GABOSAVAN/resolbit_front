@@ -53,7 +53,9 @@
                   >
                     Editar
                   </a>
-                  <button class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
+                  <button 
+                  (click)="delete(product.id)"
+                  class="inline-block rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
                       Eliminar
                   </button>
                 </td>

@@ -1,3 +1,4 @@
+import { ProductService } from './../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,7 +17,10 @@ export class NavbarComponent {
   menuOpen = false; // Estado para el menú móvil
   showMenu = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public productService: ProductService
+  ) {}
 
   toggleMenuMobile(): void {
     this.menuOpen = !this.menuOpen;
@@ -49,6 +53,12 @@ export class NavbarComponent {
 
   addCart() {
     console.log("agregando...");
+  }
+
+  restart(){
+    localStorage.removeItem('products');
+    this.productService.loadInit()
+    location.reload();
   }
 
 }
