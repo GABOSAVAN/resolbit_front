@@ -3,7 +3,7 @@
     <div class="my-14 columns-2">
         <div class="flex justify-start">
             <button 
-            (click)="toInventary()"
+            (click)="goBack()"
             class="place-self-start inline-block rounded bg-green-400 px-4 py-2 text-xs font-medium text-white hover:bg-green-700">
                 Volver
             </button>
@@ -27,136 +27,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div class="flex flex-col md:flex-row -mx-4">
   
-            <div class="md:flex-1 px-4">
-              <img
-                [src]="product.image"
-                alt=""
-                class="h-64 w-full object-contain transition duration-500 group-hover:scale-105 sm:h-72"
-              />
-              
-            </div>
+            <ng-container *ngIf="product.image">
+              <div class="md:flex-1 px-4">
+                <img
+                  [src]="product.image"
+                  alt="image"
+                  class="h-64 w-full object-contain transition duration-500 group-hover:scale-105 sm:h-72"
+                />
+                
+              </div>
+            </ng-container>
   
             <div class=" mt-10 md:mt-0 md:flex-1 px-4">
-              <!-- <form action="">
-                <div
-                  class="mx-4 md:grid md:grid-cols-1 lg:grid-cols-2 gap-4"
-                >
-                  <div class="mb-4">
-                    <label
-                      for="name"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Nombre del Producto
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-600"
-                      required
-                    />
-                  </div>
-  
-                  <div class="mb-4">
-                    <label
-                      for="name"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Marca
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-600"
-                      required
-                    />
-                  </div>
-  
-                  <div class="mb-4">
-                    <label
-                      for="name"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Precio
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-600"
-                      required
-                    />
-                  </div>
-  
-                  <div class="mb-4">
-                    <label
-                      for="name"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Cantidad
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-600"
-                      required
-                    />
-                  </div>
-  
-                  <div class="mb-4">
-                    <label
-                      for="name"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Presentacion
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-600"
-                      required
-                    />
-                  </div>
-  
-                  <div class="mb-4">
-                    <label
-                      for="name"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Url Imagen
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-600"
-                      required
-                    />
-                  </div>
-  
-                  <div class="grid col-start-1 col-end-2 lg:col-span-2 gap-4 mb-4">
-                    <div>
-                      <label
-                        for="name"
-                        class="block text-sm font-medium text-gray-700"
-                      >
-                        Descripcion del Producto
-                      </label>
-                      <textarea
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="p-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:border-indigo-600"
-                        required
-                      ></textarea>
-                    </div>
-                  </div>
-                </div>
-              </form> -->
-  
+             
                 <form>
                   <div class="mx-4 md:grid md:grid-cols-1 lg:grid-cols-2 gap-4">
                     <!-- Nombre del Producto -->

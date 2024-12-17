@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-detail/product-details.component';
 import { owner_routes } from './owner/owner.routes';
+import { LoginComponent } from './login/login/login.component';
 
 export const PAGE_ROUTES: Routes = [
   {
@@ -14,6 +15,10 @@ export const PAGE_ROUTES: Routes = [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'pages/login',
+        component: LoginComponent
       },
       {
         path: 'pages/cart',

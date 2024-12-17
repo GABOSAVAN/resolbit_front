@@ -1,12 +1,15 @@
+import { Location, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProductService } from '../../../core/services/product.service';
 
 @Component({
   selector: 'app-create-products',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './create-products.component.html',
   styleUrl: './create-products.component.css'
@@ -14,7 +17,6 @@ import { Router } from '@angular/router';
 export class CreateProductsComponent {
 
   product = {
-    id:'',
     name: '',
     brand: '',
     price: 0,
@@ -26,6 +28,8 @@ export class CreateProductsComponent {
 
   constructor(
     public router: Router,
+    public productService: ProductService,
+    private location: Location
   ){} 
 
   toCart() {
@@ -34,17 +38,29 @@ export class CreateProductsComponent {
       );
   }  
 
-  toInventary() {
-    this.router.navigate(['/owner/list']
-      //  { state: { _id: _id } }
-      );
-  }
-
-  addCart() {
-    console.log("agregando...");
-  }
+  goBack() {
+    this.location.back();
+  }  
 
   save() {
-    console.log('Producto Guardado:', this.product);
-  }
+
+      const newP = this.product    
+
+      const storedProducts = localStorage.getItem('products');
+
+      const products = storedProducts ? JSON.parse(storedProducts) : [];
+
+      const newId = (products.length + 1).toString();
+    
+      const productWithId = { ...newP, id: newId };
+    
+      products.push(productWithId);
+    
+      localStorage.setItem('products', JSON.stringify(products));
+    
+      this.productService.notification(`Producto con id ${newId} creado correctamente.`);
+      
+      this.goBack();
+    }
+    
 }

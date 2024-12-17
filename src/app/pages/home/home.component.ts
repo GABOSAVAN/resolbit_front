@@ -11,29 +11,25 @@ import { NgFor } from '@angular/common';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-
   products: any = [];
 
-  constructor(
-    public productService: ProductService,
-    public router: Router
-    ) {}
+  constructor(public productService: ProductService, public router: Router) {}
 
   ngOnInit(): void {
     this.productService.loadInit();
 
-    setTimeout(()=>{
+    setTimeout(() => {
       this.loadProducts();
-    }, 500)
+    }, 500);
   }
 
-  //funtions 
-  loadProducts(){
+  //funtions
+  loadProducts() {
     const storedProducts = localStorage.getItem('products');
     if (storedProducts) {
       this.products = JSON.parse(storedProducts);
     } else {
-    console.log(this.products);
+      console.log(this.products);
     }
   }
 
@@ -44,10 +40,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  addCart() {
-    console.log('agregando...');
-  }
+   addToCart(product: any): void {    
 
-  listProducts() {}
+    this.productService.addCart(product)
+
+   }
   
 }

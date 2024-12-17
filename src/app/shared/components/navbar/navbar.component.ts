@@ -1,6 +1,6 @@
 import { ProductService } from './../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,15 +12,17 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent{
 
   menuOpen = false; // Estado para el menú móvil
   showMenu = false;
+  items: number = 0;
 
   constructor(
     private router: Router,
     public productService: ProductService
   ) {}
+
 
   toggleMenuMobile(): void {
     this.menuOpen = !this.menuOpen;
@@ -34,26 +36,19 @@ export class NavbarComponent {
 
   toCart() {
     this.router.navigate(['/pages/cart']
-      //  { state: { _id: _id } }
       );
   }
 
   toInventary() {
     this.router.navigate(['owner/list']      
-      //  { state: { _id: _id } }
       );
       this.showMenu = false;
   }
 
   toHome() {
     this.router.navigate(['/']
-      //  { state: { _id: _id } }
       );
-  }
-
-  addCart() {
-    console.log("agregando...");
-  }
+  }  
 
   restart(){
     localStorage.removeItem('products');
