@@ -45,10 +45,13 @@ export class LoginComponent {
             role: response.User.role
           };
           localStorage.setItem('user', JSON.stringify(user));
-          // Redirige al usuario a otra página (puede ser al home o dashboard)
           this.productService.notification('Login exitoso');
+          this.authService.getUser();
           this.router.navigate(['/']);
           this.productService.notification('Login exitoso');
+          setTimeout(() => {
+            location.reload();
+          },1000);
         }
         else{
           // Si hay un error en el login, se muestra el mensaje
