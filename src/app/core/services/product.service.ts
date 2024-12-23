@@ -47,6 +47,7 @@ export class ProductService {
 
     if (storedCarts) {
       this.cart = JSON.parse(storedCarts);
+      this.cartsItem = this.cart.reduce((total: number, item: any) => total + item.unids, 0);
     }   
   }
 

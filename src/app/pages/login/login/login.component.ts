@@ -37,7 +37,7 @@ export class LoginComponent {
       // Llamamos al servicio de login con los datos del formulario
       this.authService.login(data).subscribe((response: any) => {
         // Si la respuesta es válida, guardar el usuario en localStorage
-        if (response) {
+        if (response.message === '200') {
           console.log('response...',response);
           const user = {
             name: response.User.name,

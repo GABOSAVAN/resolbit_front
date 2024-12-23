@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   showMenu = false;
   items: number = 0;
   user: any = null;
+  carts: any = [];
 
   constructor(
     private router: Router,
