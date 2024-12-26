@@ -47,16 +47,14 @@ export class ProductService {
 
     if (storedCarts) {
       this.cart = JSON.parse(storedCarts);
-      this.conterItem();
+      this.counterItem();
     }   
   }
 
-  conterItem(): void {
-    let count = this.cart.reduce((total: number, cart: any) => {
-       return total + (cart.unids || 0);
-    }, 0)
-
-    this.cartsItem.set(count);
+  counterItem(): void {
+    this.cartsItem.set(this.cart.reduce((total: number, cart: any) => {
+      return total + (cart.unids || 0);
+   }, 0));
 }
 
  
