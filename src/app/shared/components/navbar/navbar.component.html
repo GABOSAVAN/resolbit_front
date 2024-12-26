@@ -97,11 +97,11 @@
               alt=""
             />
 
-            <ng-container *ngIf="carts.length > 0">
+            <ng-container *ngIf="items>0">
               <span
               class="w-4 h-4 absolute top-0 right-1 -mt-1 -mr-1 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5 flex justify-center items-center"
             >
-              88
+              {{items}}
             </span>
             </ng-container>
           </div>

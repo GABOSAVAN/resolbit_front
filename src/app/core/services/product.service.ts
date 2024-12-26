@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 
@@ -9,7 +9,7 @@ export class ProductService {
  
   products: any = [];
   cart: any = [];
-  cartsItem:number = 0;
+  cartsItem = signal(0);
 
   constructor(
     public http: HttpClient
@@ -35,11 +35,11 @@ export class ProductService {
       this.products = JSON.parse(storedProducts);
     } else {
       this.listHome().subscribe((data: any) => {
-        // console.log('data: ', data);
         this.products = data;
         localStorage.setItem('products', JSON.stringify(this.products));
       });
     }
+    this.loadcart();
   }
 
   loadcart() {
@@ -47,14 +47,21 @@ export class ProductService {
 
     if (storedCarts) {
       this.cart = JSON.parse(storedCarts);
-      this.cartsItem = this.cart.reduce((total: number, item: any) => total + item.unids, 0);
+      this.conterItem();
     }   
   }
+
+  conterItem(): void {
+    let count = this.cart.reduce((total: number, cart: any) => {
+       return total + (cart.unids || 0);
+    }, 0)
+
+    this.cartsItem.set(count);
+}
 
  
 
   listHome(){
-    console.log('listHome funciona....')
     const URL = URL_SERVICIOS+'products';
     return this.http.get(URL);
   }
@@ -80,6 +87,8 @@ export class ProductService {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
+
+    this.loadcart()
 
     this.notification(`Producto ${product.name} añadido al carrito.`);
   }

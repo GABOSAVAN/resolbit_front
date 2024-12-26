@@ -1,6 +1,6 @@
 import { ProductService } from './../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 
@@ -15,17 +15,20 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  menuOpen = false; // Estado para el menú móvil
+  menuOpen = false; 
   showMenu = false;
-  items: number = 0;
+  items =  0;
   user: any = null;
-  carts: any = [];
 
   constructor(
     private router: Router,
     public productService: ProductService,
     public authService: AuthService
-  ) {}
+  ) {
+    effect(() => {
+      this.items = this.productService.cartsItem()
+    });
+  }
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
@@ -34,12 +37,10 @@ export class NavbarComponent implements OnInit {
 
   toggleMenuMobile(): void {
     this.menuOpen = !this.menuOpen;
-    console.log("mostrando menú mobile......");
   }
 
   toggleMenu(): void {
     this.showMenu = !this.showMenu;
-    console.log("mostrando menú...", this.menuOpen);
   }  
 
   toCart() {

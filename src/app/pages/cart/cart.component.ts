@@ -56,6 +56,8 @@ export class CartComponent implements OnInit {
 
     this.productService.notification(`Producto ${cart.name} eliminado.`);
 
+    this.productService.loadcart()
+
     this.calculateTotal();
   }
 
@@ -63,6 +65,5 @@ export class CartComponent implements OnInit {
     this.value = this.carts.reduce((total: number, cart: any) => {
        return total + (cart.subtotal || 0);
     }, 0);      
-    console.log('total...',this.value)
 }
 }
